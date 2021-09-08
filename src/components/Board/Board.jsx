@@ -1,7 +1,9 @@
+import { useState } from "react";
 import Cell from "../Cell/Cell";
 import "./Board.style.css";
 
 export default function Board() {
+  const [firstPlayerTurn, setFirstPlayerTurn] = useState(true);
   const createBoard = (component) => {
     let board = [];
     for (let i = 0; i < 3; ++i) {
@@ -16,7 +18,14 @@ export default function Board() {
 
   return (
     <div className="board-container">
-      {createBoard(<Cell />).map((cell) => cell)}
+      {createBoard(
+        <Cell
+          firstPlayerTurn={firstPlayerTurn}
+          setFirstPlayerTurn={setFirstPlayerTurn}
+        />
+      ).map((row) => {
+        return row.map((cell) => cell)
+      })}
     </div>
   );
 }
