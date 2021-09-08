@@ -1,6 +1,9 @@
 import Button from "../Button/Button";
 
 export default function GameMode() {
+
+    
+
     return (
         <>
           <Button name="player vs player"/>
