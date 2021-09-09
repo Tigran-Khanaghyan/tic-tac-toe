@@ -1,30 +1,26 @@
 import { useState } from "react";
+import { createBoard } from "../../helpers/board";
 import Cell from "../Cell/Cell";
 import "./Board.style.css";
 
 export default function Board() {
-  const [firstPlayerTurn, setFirstPlayerTurn] = useState(true);
-  const createBoard = (component) => {
-    let board = [];
-    for (let i = 0; i < 3; ++i) {
-      let row = [];
-      for (let j = 0; j < 3; ++j) {
-        row.push(component);
-      }
-      board.push(row);
-    }
-    return board;
-  };
+  const [board, setBoard] = useState(createBoard());
 
   return (
     <div className="board-container">
-      {createBoard(
-        <Cell
-          firstPlayerTurn={firstPlayerTurn}
-          setFirstPlayerTurn={setFirstPlayerTurn}
-        />
-      ).map((row) => {
-        return row.map((cell) => cell)
+      {board.map((row, i) => {
+        return row.map((cell, j) => {
+          return (
+            <Cell
+              board={board}
+              setBoard={setBoard}
+              key={`${i}&${j}`}
+              coordinates={[i, j]}
+              value={cell}
+              
+            />
+          );
+        });
       })}
     </div>
   );

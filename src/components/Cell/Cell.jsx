@@ -1,24 +1,26 @@
 import { useState } from "react";
+import { setBoardValue } from "../../helpers/board";
 import "./Cell.style.css";
 
-export default function Cell({ firstPlayerTurn, setFirstPlayerTurn }) {
-  const [value, setValue] = useState(null);
+export default function Cell({
+  value,
+  coordinates,
+  board,
+  setBoard,
+}) {
+  const [cellValue, setCellValue] = useState();
 
-  const onClick = () => {
-    if (value) {
+  const handleCellClick = () => {
+    if (!value) {
       return;
     }
-    if (firstPlayerTurn) {
-      setValue("X");
-      setFirstPlayerTurn(false);
-    } else {
-      setValue("O");
-      setFirstPlayerTurn(true);
-    }
+    setCellValue("X");
+    setBoard(setBoardValue(board, coordinates, "X"));
   };
+
   return (
-    <div className="cell-container" onClick={onClick}>
-      {value}
+    <div className="cell-container" onClick={handleCellClick}>
+      {cellValue}
     </div>
   );
 }
