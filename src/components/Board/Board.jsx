@@ -7,6 +7,8 @@ import "./Board.style.css";
 export default function Board() {
   const [board, setBoard] = useState(createBoard());
   const [turnToggler, setTurnToggler] = useState(FIRS_PLAYER_TURN);
+  const [counter, setCounter] = useState(0);
+  const [signs, setSigns] = useState([]);
 
   return (
     <div className="board-container">
@@ -14,6 +16,10 @@ export default function Board() {
         return row.map((cell, j) => {
           return (
             <Cell
+              signs={signs}
+              setSigns={setSigns}
+              counter={counter}
+              setCounter={setCounter}
               board={board}
               setBoard={setBoard}
               key={`${i}&${j}`}

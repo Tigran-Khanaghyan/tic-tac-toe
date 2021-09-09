@@ -28,7 +28,7 @@ const checkBoardRows = (board) => {
   for (let row of board) {
     let count = 0;
     for (let item of row) {
-      if (item === row[0] && item) {
+      if (item === row[0]) {
         ++count;
       }
       if (count === board.length) {
@@ -79,5 +79,6 @@ export const findWinner = (board) => {
     checkBoardRows(board) ||
     checkBoardColumns(board) ||
     checkBoardDiagonal(board);
+
   return winnerSign;
 };
