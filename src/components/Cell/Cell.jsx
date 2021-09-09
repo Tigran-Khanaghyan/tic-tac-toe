@@ -1,21 +1,33 @@
 import { useState } from "react";
-import { setBoardValue } from "../../helpers/board";
+import {
+  FIRS_PLAYER_TURN,
+  GAME_SIGNS,
+  SECOND_PLAYER_TURN,
+} from "../../constants/constants";
+import { getBoardCellValue, setBoardCellValue } from "../../helpers/board";
 import "./Cell.style.css";
 
 export default function Cell({
-  value,
   coordinates,
   board,
   setBoard,
+  turnToggler,
+  setTurnToggler,
 }) {
   const [cellValue, setCellValue] = useState();
 
   const handleCellClick = () => {
-    if (!value) {
+    setBoard(setBoardCellValue(board, coordinates, cellValue));
+    if (getBoardCellValue(board, coordinates)) {
       return;
     }
-    setCellValue("X");
-    setBoard(setBoardValue(board, coordinates, "X"));
+    if (turnToggler) {
+      setCellValue(GAME_SIGNS[SECOND_PLAYER_TURN]);
+      setTurnToggler(FIRS_PLAYER_TURN);
+    } else {
+      setCellValue(GAME_SIGNS[FIRS_PLAYER_TURN]);
+      setTurnToggler(SECOND_PLAYER_TURN);
+    }
   };
 
   return (
