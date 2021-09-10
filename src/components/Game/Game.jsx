@@ -9,9 +9,10 @@ export const ChangeContext = React.createContext();
 
 export default function Game() {
   const [change, setChange] = useState(1);
+  const [gameOver, setGameOver] = useState(false);
 
   return (
-    <ChangeContext.Provider value={{ change, setChange }}>
+    <ChangeContext.Provider value={{ change, setChange, gameOver, setGameOver }}>
       <Layout
         child={<GameContent />}
         left={<GameMode />}
