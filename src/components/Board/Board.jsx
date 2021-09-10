@@ -1,30 +1,28 @@
 import { useState } from "react";
+import { FIRS_PLAYER_TURN } from "../../constants/constants";
+import { board } from "../../helpers/board";
 import Cell from "../Cell/Cell";
 import "./Board.style.css";
 
 export default function Board() {
-  const [firstPlayerTurn, setFirstPlayerTurn] = useState(true);
-  const createBoard = (component) => {
-    let board = [];
-    for (let i = 0; i < 3; ++i) {
-      let row = [];
-      for (let j = 0; j < 3; ++j) {
-        row.push(component);
-      }
-      board.push(row);
-    }
-    return board;
-  };
+  const [turnToggler, setTurnToggler] = useState(FIRS_PLAYER_TURN);
+  const [signs, setSigns] = useState([]);
 
   return (
     <div className="board-container">
-      {createBoard(
-        <Cell
-          firstPlayerTurn={firstPlayerTurn}
-          setFirstPlayerTurn={setFirstPlayerTurn}
-        />
-      ).map((row) => {
-        return row.map((cell) => cell)
+      {board.map((row, i) => {
+        return row.map((cell, j) => {
+          return (
+            <Cell
+              signs={signs}
+              setSigns={setSigns}
+              key={`${i}&${j}`}
+              coordinates={[i, j]}
+              turnToggler={turnToggler}
+              setTurnToggler={setTurnToggler}
+            />
+          );
+        });
       })}
     </div>
   );
