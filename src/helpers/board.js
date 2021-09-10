@@ -103,9 +103,19 @@ export const counter = (board) => {
 export const scoresHandler = (signs, arr, scores) => {
   if (signs.length) {
     if (signs[0][0] === arr[0]) {
-      ++scores.score1
+      ++scores.score1;
     } else {
       ++scores.score2;
+    }
+  }
+};
+
+export const clearBoard = (board) =>  {
+  console.log(1)
+  for (let row of board) {
+    for (let cell of row) {
+      // eslint-disable-next-line
+      cell = null;
     }
   }
 };
