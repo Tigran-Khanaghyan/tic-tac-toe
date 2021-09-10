@@ -10,6 +10,8 @@ export const createBoard = (value = null) => {
   return board;
 };
 
+export const board = createBoard()
+
 export const setBoardCellValue = (board, coordinates, value) => {
   let x = coordinates[0];
   let y = coordinates[1];

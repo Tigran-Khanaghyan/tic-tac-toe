@@ -5,6 +5,7 @@ import {
   SECOND_PLAYER_TURN,
 } from "../../constants/constants";
 import {
+  board,
   findWinner,
   getBoardCellValue,
   setBoardCellValue,
@@ -15,15 +16,13 @@ let signs = [];
 
 export default function Cell({
   coordinates,
-  board,
-  setBoard,
   turnToggler,
   setTurnToggler,
   counter,
   setCounter,
 }) {
   const [cellValue, setCellValue] = useState();
-  setBoard(setBoardCellValue(board, coordinates, cellValue));
+  setBoardCellValue(board, coordinates, cellValue);
 
   let winnerSign = findWinner(board);
 
