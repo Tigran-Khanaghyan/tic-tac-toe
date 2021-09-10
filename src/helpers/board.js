@@ -1,3 +1,6 @@
+export const signs = [];
+export const scores = { score1: 0, score2: 0 };
+
 export const createBoard = (value = null) => {
   let board = [];
   for (let i = 0; i < 3; ++i) {
@@ -96,4 +99,13 @@ export const counter = (board) => {
   }
   return count;
 };
-export const signs = []
+
+export const scoresHandler = (signs, arr, scores) => {
+  if (signs.length) {
+    if (signs[0][0] === arr[0]) {
+      ++scores.score1
+    } else {
+      ++scores.score2;
+    }
+  }
+};

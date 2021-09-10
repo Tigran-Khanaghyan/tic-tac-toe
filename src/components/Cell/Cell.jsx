@@ -10,15 +10,18 @@ import {
   counter,
   findWinner,
   getBoardCellValue,
+  scores,
+  scoresHandler,
   setBoardCellValue,
   signs,
 } from "../../helpers/board";
+import { ChangeContext } from "../Game/Game";
 import { ShowContext } from "../Layout/Layout";
 import "./Cell.style.css";
 
-
 export default function Cell({ coordinates, turnToggler, setTurnToggler }) {
   const { showModalWindow } = useContext(ShowContext);
+  const { change, setChange } = useContext(ChangeContext);
   const [cellValue, setCellValue] = useState();
 
   let winnerSign = findWinner(board);
@@ -29,8 +32,9 @@ export default function Cell({ coordinates, turnToggler, setTurnToggler }) {
 
   useEffect(() => {
     if (counter(board) === 9) {
+      scoresHandler(signs, GAME_SIGNS, scores)
+      setChange(change + 1)
       showModalWindow();
-      // console.log(signs[0][0]);
     }
     // eslint-disable-next-line
   }, [cellValue]);

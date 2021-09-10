@@ -1,14 +1,20 @@
-import './GameInfo.style.css'
+import "./GameInfo.style.css";
 
-export default function GameInfo() {
+export default function GameInfo({ score1 = 0, score2 = 0 }) {
   return (
     <>
-      <div className='title'>
+      <div className="title">
         <p>Players</p>
         <p>Score</p>
       </div>
-      <div></div>
-      <div></div>
+      <div className="player">
+        <p>Player 1</p>
+        <p>{score1}</p>
+      </div>
+      <div className="player">
+        <p>Player 2</p>
+        <p>{score2}</p>
+      </div>
     </>
   );
 }
