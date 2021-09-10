@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import {
   FIRS_PLAYER_TURN,
   GAME_SIGNS,
@@ -10,6 +10,7 @@ import {
   getBoardCellValue,
   setBoardCellValue,
 } from "../../helpers/board";
+import { ShowContext } from "../Layout/Layout";
 import "./Cell.style.css";
 
 let signs = [];
@@ -21,6 +22,7 @@ export default function Cell({
   counter,
   setCounter,
 }) {
+  const showModalWindow = useContext(ShowContext)
   const [cellValue, setCellValue] = useState();
   setBoardCellValue(board, coordinates, cellValue);
 
@@ -30,6 +32,7 @@ export default function Cell({
     signs.push(winnerSign);
   }
   if (counter === 9) {
+    showModalWindow()
     console.log(signs[0][0]);
   }
   
