@@ -11,11 +11,11 @@ import {
   findWinner,
   getBoardCellValue,
   setBoardCellValue,
+  signs,
 } from "../../helpers/board";
 import { ShowContext } from "../Layout/Layout";
 import "./Cell.style.css";
 
-let signs = [];
 
 export default function Cell({ coordinates, turnToggler, setTurnToggler }) {
   const { showModalWindow } = useContext(ShowContext);

@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import ModalContent from "../ModalContent/ModalContent";
 import ModalWindow from "../ModalWindow/ModalWindow";
 import "./Layout.style.css";
 
@@ -15,12 +16,16 @@ export default function Layout(props) {
   const closeModalWindow = () => {
     setShow(false);
   };
- 
+
   return (
     <div className="layout-container">
       <div className="layout">
-        <ModalWindow show={show} closeModalWindow={closeModalWindow} />
-        <ShowContext.Provider value={{showModalWindow}}>
+        <ModalWindow
+          child={<ModalContent />}
+          show={show}
+          closeModalWindow={closeModalWindow}
+        />
+        <ShowContext.Provider value={{ showModalWindow }}>
           <div className="child-content">{props.child}</div>
         </ShowContext.Provider>
         <div className="info">

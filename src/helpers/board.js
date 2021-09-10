@@ -96,3 +96,4 @@ export const counter = (board) => {
   }
   return count;
 };
+export const signs = []
