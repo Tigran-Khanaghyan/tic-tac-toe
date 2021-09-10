@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import { useEffect } from "react/cjs/react.development";
 import {
   FIRS_PLAYER_TURN,
   GAME_SIGNS,
@@ -6,6 +7,7 @@ import {
 } from "../../constants/constants";
 import {
   board,
+  counter,
   findWinner,
   getBoardCellValue,
   setBoardCellValue,
@@ -15,32 +17,27 @@ import "./Cell.style.css";
 
 let signs = [];
 
-export default function Cell({
-  coordinates,
-  turnToggler,
-  setTurnToggler,
-  counter,
-  setCounter,
-}) {
-  const showModalWindow = useContext(ShowContext)
+export default function Cell({ coordinates, turnToggler, setTurnToggler }) {
+  const { showModalWindow } = useContext(ShowContext);
   const [cellValue, setCellValue] = useState();
-  setBoardCellValue(board, coordinates, cellValue);
 
   let winnerSign = findWinner(board);
 
   if (winnerSign) {
     signs.push(winnerSign);
   }
-  if (counter === 9) {
-    showModalWindow()
-    console.log(signs[0][0]);
-  }
-  
+
+  useEffect(() => {
+    if (counter(board) === 9) {
+      showModalWindow();
+      // console.log(signs[0][0]);
+    }
+    // eslint-disable-next-line
+  }, [cellValue]);
   const handleCellClick = () => {
     if (getBoardCellValue(board, coordinates)) {
       return;
     }
-    setCounter(counter + 1);
     if (turnToggler) {
       setCellValue(GAME_SIGNS[SECOND_PLAYER_TURN]);
       setTurnToggler(FIRS_PLAYER_TURN);
@@ -49,6 +46,7 @@ export default function Cell({
       setTurnToggler(SECOND_PLAYER_TURN);
     }
   };
+  setBoardCellValue(board, coordinates, cellValue);
 
   return (
     <div className="cell-container" onClick={handleCellClick}>

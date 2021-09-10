@@ -5,9 +5,7 @@ import Cell from "../Cell/Cell";
 import "./Board.style.css";
 
 export default function Board() {
-  
   const [turnToggler, setTurnToggler] = useState(FIRS_PLAYER_TURN);
-  const [counter, setCounter] = useState(0);
   const [signs, setSigns] = useState([]);
 
   return (
@@ -18,8 +16,6 @@ export default function Board() {
             <Cell
               signs={signs}
               setSigns={setSigns}
-              counter={counter}
-              setCounter={setCounter}
               key={`${i}&${j}`}
               coordinates={[i, j]}
               turnToggler={turnToggler}

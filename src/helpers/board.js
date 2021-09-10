@@ -10,7 +10,7 @@ export const createBoard = (value = null) => {
   return board;
 };
 
-export const board = createBoard()
+export const board = createBoard();
 
 export const setBoardCellValue = (board, coordinates, value) => {
   let x = coordinates[0];
@@ -83,4 +83,16 @@ export const findWinner = (board) => {
     checkBoardDiagonal(board);
 
   return winnerSign;
+};
+
+export const counter = (board) => {
+  let count = 0;
+  for (let row of board) {
+    for (let cell of row) {
+      if (cell) {
+        ++count;
+      }
+    }
+  }
+  return count;
 };
