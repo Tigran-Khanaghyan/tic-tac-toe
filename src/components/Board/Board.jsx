@@ -1,5 +1,4 @@
 import { useContext, useState } from "react";
-import { FIRST_PLAYER_TURN } from "../../constants/constants";
 import { board, clearBoard } from "../../helpers/board";
 import Button from "../Button/Button";
 import Cell from "../Cell/Cell";
@@ -22,10 +21,10 @@ function Board() {
   return (
     <div className="board-container">
       {board.map((row, i) => {
-        return row.map((cell, j) => {
+        return row.map((_, j) => {
           return (
             <Cell
-            setReplayClicked={setReplayClicked}
+              setReplayClicked={setReplayClicked}
               replayClicked={replayClicked}
               gameOver={gameOver}
               initialCellValue={initialCellValue}

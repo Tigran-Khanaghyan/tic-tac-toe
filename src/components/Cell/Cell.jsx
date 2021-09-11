@@ -7,7 +7,6 @@ import {
 } from "../../constants/constants";
 import {
   board,
-  clearBoard,
   counter,
   findWinner,
   getBoardCellValue,
@@ -16,6 +15,7 @@ import {
   setBoardCellValue,
   signs,
 } from "../../helpers/board";
+import { setScores } from "../../services/localStorage";
 import { ChangeContext } from "../Game/Game";
 import { ShowContext } from "../Layout/Layout";
 import "./Cell.style.css";
@@ -32,7 +32,6 @@ function Cell({
   const { showModalWindow } = useContext(ShowContext);
   const { change, setChange, setGameOver } = useContext(ChangeContext);
   const [cellValue, setCellValue] = useState();
-  // const [changeState, setChangeState] = useState(1)
 
   let winnerSign = findWinner(board);
 
@@ -43,6 +42,7 @@ function Cell({
   useEffect(() => {
     if (counter(board) === 9) {
       scoresHandler(signs, GAME_SIGNS, scores);
+      setScores('Info', scores) 
       setChange(change + 1);
       showModalWindow();
       setGameOver(true);
@@ -50,7 +50,7 @@ function Cell({
     // eslint-disable-next-line
   }, [cellValue]);
   useEffect(() => {
-    signs.length = 0
+    signs.length = 0;
     setTurnToggler(!turnToggler);
     setReplayClicked(false);
     setCellValue(initialCellValue);
