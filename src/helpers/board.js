@@ -78,7 +78,7 @@ const checkBoardDiagonal = (board) => {
           }
         }
       }
-      if (j === board.length - i) {
+      if (j === board.length - i - 1) {
         secondDiagonal.push(board[i][j]);
         if (secondDiagonal.length === board.length) {
           let item = secondDiagonal[0];

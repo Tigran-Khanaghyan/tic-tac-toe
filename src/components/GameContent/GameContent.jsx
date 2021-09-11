@@ -1,10 +1,10 @@
 import Board from "../Board/Board";
 
- function GameContent() {
+function GameContent() {
   return (
     <>
       <Board />
     </>
   );
 }
-export default GameContent
+export default GameContent;

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { getScores } from "../../services/localStorage";
 import { scores } from "../../helpers/board";
 import GameContent from "../GameContent/GameContent";
 import GameMode from "../GameMode/GameMode";
 import GameInfo from "../GameInfo/GameInfo";
 import Layout from "../Layout/Layout";
-import { getScores } from "../../services/localStorage";
 
 export const ChangeContext = React.createContext();
 
@@ -26,9 +26,9 @@ function Game() {
       value={{ change, setChange, gameOver, setGameOver }}
     >
       <Layout
-        child={<GameContent />}
-        left={<GameMode />}
-        right={
+        gameContent={<GameContent />}
+        gameMode={<GameMode />}
+        gameInfo={
           <GameInfo
             change={change}
             setChange={setChange}

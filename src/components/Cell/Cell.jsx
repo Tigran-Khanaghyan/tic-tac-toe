@@ -4,7 +4,7 @@ import {
   FIRST_PLAYER_TURN,
   GAME_SIGNS,
   SECOND_PLAYER_TURN,
-} from "../../constants/constants";
+} from "../../constants/game";
 import {
   board,
   counter,
@@ -42,7 +42,7 @@ function Cell({
   useEffect(() => {
     if (counter(board) === 9) {
       scoresHandler(signs, GAME_SIGNS, scores);
-      setScores('Info', scores) 
+      setScores("Info", scores);
       setChange(change + 1);
       showModalWindow();
       setGameOver(true);
