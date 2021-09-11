@@ -138,3 +138,9 @@ export const clearBoard = (board) => {
     }
   }
 };
+
+export const clearLocalScores = (scores) => {
+  for (let key in scores) {
+    scores[key] = 0;
+  }
+};

@@ -9,17 +9,17 @@ import { getScores } from "../../services/localStorage";
 export const ChangeContext = React.createContext();
 
 function Game() {
-  const [change, setChange] = useState(1);
+  const [change, setChange] = useState(false);
   const [gameOver, setGameOver] = useState(false);
   const [newScores, setNewScores] = useState();
 
   useEffect(() => {
-    let loadedScores = getScores('Info')
-    if(loadedScores){
-      setNewScores(loadedScores)
-    }
+    let loadedScores = getScores("Info");
+    if (loadedScores) {
+      setNewScores(loadedScores);
+    } else setNewScores(scores);
     // eslint-disable-next-line
-  },[change, scores])
+  }, [change, scores]);
 
   return (
     <ChangeContext.Provider
@@ -30,6 +30,8 @@ function Game() {
         left={<GameMode />}
         right={
           <GameInfo
+            change={change}
+            setChange={setChange}
             score1={newScores ? newScores.score1 : scores.score1}
             score2={newScores ? newScores.score2 : scores.score2}
           />
