@@ -1,3 +1,12 @@
 # Tic Tac Toe
 
-[Game Link](https://tic-tac-toe-lilac-two.vercel.app/game)
+## Used Libraries
+
+- React
+- react-router-dom
+
+## Deployment
+
+- vercel
+
+Enjoy with this game [Tic Tac Toe](https://tic-tac-toe-lilac-two.vercel.app/game)
