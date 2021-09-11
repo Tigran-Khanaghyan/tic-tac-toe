@@ -1,35 +1,35 @@
 .layout-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    min-height: 100vh;
-  }
-  
-  .layout {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: column;
-    width: 600px;
-    height: 600px;
-    background-color: #f96714;
-  }
-  .child-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  .info {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    padding: 10px;
-  }
-  .mode-container {
-    display: flex;
-    flex-direction: column;
-  }
-  .gameInfo {
-    width: 40%;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.layout {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  width: 600px;
+  height: 600px;
+  background-color: #f96714;
+}
+.child-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+}
+.mode-container {
+  display: flex;
+  flex-direction: column;
+}
+.gameInfo {
+  width: 40%;
+}

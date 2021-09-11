@@ -6,7 +6,7 @@ import "./Layout.style.css";
 
 export const ShowContext = React.createContext();
 
- function Layout(props) {
+function Layout(props) {
   const [show, setShow] = useState();
 
   const showModalWindow = () => {
@@ -26,14 +26,14 @@ export const ShowContext = React.createContext();
           closeModalWindow={closeModalWindow}
         />
         <ShowContext.Provider value={{ showModalWindow }}>
-          <div className="child-content">{props.child}</div>
+          <div className="child-content">{props.gameContent}</div>
         </ShowContext.Provider>
         <div className="info">
-          <div className="mode-container">{props.left}</div>
-          <div className="gameInfo">{props.right}</div>
+          <div className="mode-container">{props.gameMode}</div>
+          <div className="gameInfo">{props.gameInfo}</div>
         </div>
       </div>
     </div>
   );
 }
-export default Layout
+export default Layout;

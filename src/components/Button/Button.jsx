@@ -1,8 +1,10 @@
-import './Button.style.css'
+import "./Button.style.css";
 
- function Button({name, onClick}) {
-    return (
-        <button onClick={onClick} className='button'>{name}</button>
-    )
+function Button({ name, onClick }) {
+  return (
+    <button onClick={onClick} className="button">
+      {name}
+    </button>
+  );
 }
-export default Button
+export default Button;

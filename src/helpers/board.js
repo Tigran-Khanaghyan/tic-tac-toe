@@ -78,7 +78,7 @@ const checkBoardDiagonal = (board) => {
           }
         }
       }
-      if (j === board.length - i) {
+      if (j === board.length - i - 1) {
         secondDiagonal.push(board[i][j]);
         if (secondDiagonal.length === board.length) {
           let item = secondDiagonal[0];
@@ -136,5 +136,11 @@ export const clearBoard = (board) => {
       // eslint-disable-next-line
       cell = null;
     }
+  }
+};
+
+export const clearLocalScores = (scores) => {
+  for (let key in scores) {
+    scores[key] = 0;
   }
 };

@@ -1,13 +1,13 @@
 .title {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    color: white
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: white;
 }
 
 .player {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10px;
 }
