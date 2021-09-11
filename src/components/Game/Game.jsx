@@ -18,6 +18,7 @@ function Game() {
     if(loadedScores){
       setNewScores(loadedScores)
     }
+    // eslint-disable-next-line
   },[change, scores])
 
   return (
