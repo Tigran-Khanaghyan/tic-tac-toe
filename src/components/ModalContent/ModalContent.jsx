@@ -1,7 +1,7 @@
 import { GAME_SIGNS } from "../../constants/constants";
 import { signs } from "../../helpers/board";
 
-export default function ModalContent() {
+ function ModalContent() {
   let winnerMessage = "Draw";
 
   if (signs.length) {
@@ -18,3 +18,4 @@ export default function ModalContent() {
     </div>
   );
 }
+export default ModalContent

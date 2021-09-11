@@ -6,7 +6,7 @@ import "./Layout.style.css";
 
 export const ShowContext = React.createContext();
 
-export default function Layout(props) {
+ function Layout(props) {
   const [show, setShow] = useState();
 
   const showModalWindow = () => {
@@ -36,3 +36,4 @@ export default function Layout(props) {
     </div>
   );
 }
+export default Layout

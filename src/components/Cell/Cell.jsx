@@ -19,7 +19,7 @@ import { ChangeContext } from "../Game/Game";
 import { ShowContext } from "../Layout/Layout";
 import "./Cell.style.css";
 
-export default function Cell({
+ function Cell({
   coordinates,
   turnToggler,
   setTurnToggler,
@@ -65,3 +65,5 @@ export default function Cell({
     </div>
   );
 }
+
+export default Cell

@@ -8,7 +8,7 @@ import Cell from "../Cell/Cell";
 import { ChangeContext } from "../Game/Game";
 import "./Board.style.css";
 
-export default function Board() {
+ function Board() {
   const [turnToggler, setTurnToggler] = useState(FIRST_PLAYER_TURN);
   const [initialCellValue, setInitialCellValue] = useState(false);
   const { gameOver, setGameOver } = useContext(ChangeContext);
@@ -38,3 +38,5 @@ export default function Board() {
     </div>
   );
 }
+
+export default Board
