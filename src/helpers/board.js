@@ -61,21 +61,41 @@ const checkBoardColumns = (board) => {
 const checkBoardDiagonal = (board) => {
   let firstDiagonal = [];
   let secondDiagonal = [];
-  let centeredItem = board[1][1];
-  if (centeredItem) {
-    for (let i = 0; i < board.length; ++i) {
-      for (let j = 0; j < board.length; ++j) {
-        if (i === j && board[i][j] === centeredItem) {
-          firstDiagonal.push(board[i][j]);
-          if (firstDiagonal.length === board.length) return centeredItem;
+  for (let i = 0; i < board.length; ++i) {
+    for (let j = 0; j < board.length; ++j) {
+      if (i === j) {
+        firstDiagonal.push(board[i][j]);
+        if (firstDiagonal.length === board.length) {
+          let item = firstDiagonal[0];
+          let count = 0;
+          for (let cell of firstDiagonal) {
+            if (cell === item) {
+              ++count;
+              if (count === board.length) {
+                return item;
+              }
+            }
+          }
         }
-        if (j === board.length - i && board[i][j] === centeredItem) {
-          secondDiagonal.push(board[i][j]);
-          if (secondDiagonal.length === board.length) return centeredItem;
+      }
+      if (j === board.length - i) {
+        secondDiagonal.push(board[i][j]);
+        if (secondDiagonal.length === board.length) {
+          let item = secondDiagonal[0];
+          let count = 0;
+          for (let cell of secondDiagonal) {
+            if (cell === item) {
+              ++count;
+              if (count === board.length) {
+                return item;
+              }
+            }
+          }
         }
       }
     }
   }
+
   return 0;
 };
 
@@ -110,8 +130,7 @@ export const scoresHandler = (signs, arr, scores) => {
   }
 };
 
-export const clearBoard = (board) =>  {
-  console.log(1)
+export const clearBoard = (board) => {
   for (let row of board) {
     for (let cell of row) {
       // eslint-disable-next-line

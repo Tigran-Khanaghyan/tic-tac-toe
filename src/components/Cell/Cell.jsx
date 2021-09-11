@@ -50,7 +50,8 @@ function Cell({
     // eslint-disable-next-line
   }, [cellValue]);
   useEffect(() => {
-    setTurnToggler(!turnToggler)
+    signs.length = 0
+    setTurnToggler(!turnToggler);
     setReplayClicked(false);
     setCellValue(initialCellValue);
     // eslint-disable-next-line
