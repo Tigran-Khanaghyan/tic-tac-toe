@@ -1,6 +1,6 @@
 import Button from "../Button/Button";
 
-export default function GameMode() {
+ function GameMode() {
 
     
 
@@ -12,3 +12,4 @@ export default function GameMode() {
         </>
     )
 }
+export default GameMode

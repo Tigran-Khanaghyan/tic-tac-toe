@@ -1,6 +1,6 @@
 import "./GameInfo.style.css";
 
-export default function GameInfo({ score1 = 0, score2 = 0 }) {
+ function GameInfo({ score1 = 0, score2 = 0 }) {
   return (
     <>
       <div className="title">
@@ -18,3 +18,4 @@ export default function GameInfo({ score1 = 0, score2 = 0 }) {
     </>
   );
 }
+export default GameInfo

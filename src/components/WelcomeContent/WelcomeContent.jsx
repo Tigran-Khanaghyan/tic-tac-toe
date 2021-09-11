@@ -3,7 +3,7 @@ import { routes } from "../../constants/routes";
 import Button from "../Button/Button";
 import "./WelcomeContent.style.css";
 
-export default function WelcomeContent() {
+ function WelcomeContent() {
   let history = useHistory();
 
   const handlePlay = () => {
@@ -19,3 +19,4 @@ export default function WelcomeContent() {
     </>
   );
 }
+export default WelcomeContent

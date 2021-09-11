@@ -7,7 +7,7 @@ import Layout from "../Layout/Layout";
 
 export const ChangeContext = React.createContext();
 
-export default function Game() {
+ function Game() {
   const [change, setChange] = useState(1);
   const [gameOver, setGameOver] = useState(false);
 
@@ -21,3 +21,4 @@ export default function Game() {
     </ChangeContext.Provider>
   );
 }
+export default Game
