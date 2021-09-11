@@ -4,7 +4,7 @@ import {
   FIRST_PLAYER_TURN,
   GAME_SIGNS,
   SECOND_PLAYER_TURN,
-} from "../../constants/constants";
+} from "../../constants/game";
 import {
   board,
   counter,
@@ -15,19 +15,23 @@ import {
   setBoardCellValue,
   signs,
 } from "../../helpers/board";
+import { setScores } from "../../services/localStorage";
 import { ChangeContext } from "../Game/Game";
 import { ShowContext } from "../Layout/Layout";
 import "./Cell.style.css";
 
- function Cell({
+function Cell({
   coordinates,
   turnToggler,
   setTurnToggler,
+  initialCellValue,
+  gameOver,
+  replayClicked,
+  setReplayClicked,
 }) {
   const { showModalWindow } = useContext(ShowContext);
   const { change, setChange, setGameOver } = useContext(ChangeContext);
   const [cellValue, setCellValue] = useState();
-  // const [changeState, setChangeState] = useState(1)
 
   let winnerSign = findWinner(board);
 
@@ -38,13 +42,21 @@ import "./Cell.style.css";
   useEffect(() => {
     if (counter(board) === 9) {
       scoresHandler(signs, GAME_SIGNS, scores);
+      setScores("Info", scores);
       setChange(change + 1);
       showModalWindow();
-      setGameOver(true)
+      setGameOver(true);
     }
     // eslint-disable-next-line
   }, [cellValue]);
-  
+  useEffect(() => {
+    signs.length = 0;
+    setTurnToggler(!turnToggler);
+    setReplayClicked(false);
+    setCellValue(initialCellValue);
+    // eslint-disable-next-line
+  }, [replayClicked]);
+
   const handleCellClick = () => {
     if (getBoardCellValue(board, coordinates)) {
       return;
@@ -61,9 +73,9 @@ import "./Cell.style.css";
 
   return (
     <div className="cell-container" onClick={handleCellClick}>
-      {cellValue}
+      {gameOver && replayClicked ? initialCellValue : cellValue}
     </div>
   );
 }
 
-export default Cell
+export default Cell;

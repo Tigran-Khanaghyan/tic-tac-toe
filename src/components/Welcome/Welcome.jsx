@@ -1,7 +1,7 @@
 import Layout from "../Layout/Layout";
 import WelcomeContent from "../WelcomeContent/WelcomeContent";
 
- function Welcome() {
+function Welcome() {
   return <Layout child={<WelcomeContent />} />;
 }
-export default Welcome
+export default Welcome;

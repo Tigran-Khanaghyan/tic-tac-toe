@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { getScores } from "../../services/localStorage";
 import { scores } from "../../helpers/board";
 import GameContent from "../GameContent/GameContent";
 import GameMode from "../GameMode/GameMode";
@@ -7,18 +8,36 @@ import Layout from "../Layout/Layout";
 
 export const ChangeContext = React.createContext();
 
- function Game() {
-  const [change, setChange] = useState(1);
+function Game() {
+  const [change, setChange] = useState(false);
   const [gameOver, setGameOver] = useState(false);
+  const [newScores, setNewScores] = useState();
+
+  useEffect(() => {
+    let loadedScores = getScores("Info");
+    if (loadedScores) {
+      setNewScores(loadedScores);
+    } else setNewScores(scores);
+    // eslint-disable-next-line
+  }, [change, scores]);
 
   return (
-    <ChangeContext.Provider value={{ change, setChange, gameOver, setGameOver }}>
+    <ChangeContext.Provider
+      value={{ change, setChange, gameOver, setGameOver }}
+    >
       <Layout
-        child={<GameContent />}
-        left={<GameMode />}
-        right={<GameInfo score1={scores.score1} score2={scores.score2} />}
+        gameContent={<GameContent />}
+        gameMode={<GameMode />}
+        gameInfo={
+          <GameInfo
+            change={change}
+            setChange={setChange}
+            score1={newScores ? newScores.score1 : scores.score1}
+            score2={newScores ? newScores.score2 : scores.score2}
+          />
+        }
       />
     </ChangeContext.Provider>
   );
 }
-export default Game
+export default Game;
