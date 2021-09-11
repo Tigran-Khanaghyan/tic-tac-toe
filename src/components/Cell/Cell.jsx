@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { useEffect } from "react/cjs/react.development";
+import { useEffect } from "react";
 import {
   FIRST_PLAYER_TURN,
   GAME_SIGNS,
@@ -7,6 +7,7 @@ import {
 } from "../../constants/constants";
 import {
   board,
+  clearBoard,
   counter,
   findWinner,
   getBoardCellValue,
@@ -19,10 +20,14 @@ import { ChangeContext } from "../Game/Game";
 import { ShowContext } from "../Layout/Layout";
 import "./Cell.style.css";
 
- function Cell({
+function Cell({
   coordinates,
   turnToggler,
   setTurnToggler,
+  initialCellValue,
+  gameOver,
+  replayClicked,
+  setReplayClicked,
 }) {
   const { showModalWindow } = useContext(ShowContext);
   const { change, setChange, setGameOver } = useContext(ChangeContext);
@@ -40,11 +45,17 @@ import "./Cell.style.css";
       scoresHandler(signs, GAME_SIGNS, scores);
       setChange(change + 1);
       showModalWindow();
-      setGameOver(true)
+      setGameOver(true);
     }
     // eslint-disable-next-line
   }, [cellValue]);
-  
+  useEffect(() => {
+    setTurnToggler(!turnToggler)
+    setReplayClicked(false);
+    setCellValue(initialCellValue);
+    // eslint-disable-next-line
+  }, [replayClicked]);
+
   const handleCellClick = () => {
     if (getBoardCellValue(board, coordinates)) {
       return;
@@ -61,9 +72,9 @@ import "./Cell.style.css";
 
   return (
     <div className="cell-container" onClick={handleCellClick}>
-      {cellValue}
+      {gameOver && replayClicked ? initialCellValue : cellValue}
     </div>
   );
 }
 
-export default Cell
+export default Cell;

@@ -1,22 +1,22 @@
 import { useContext, useState } from "react";
-import {
-  FIRST_PLAYER_TURN,
-} from "../../constants/constants";
+import { FIRST_PLAYER_TURN } from "../../constants/constants";
 import { board, clearBoard } from "../../helpers/board";
 import Button from "../Button/Button";
 import Cell from "../Cell/Cell";
 import { ChangeContext } from "../Game/Game";
 import "./Board.style.css";
 
- function Board() {
-  const [turnToggler, setTurnToggler] = useState(FIRST_PLAYER_TURN);
+function Board() {
+  const [turnToggler, setTurnToggler] = useState(false);
   const [initialCellValue, setInitialCellValue] = useState(false);
+  const [replayClicked, setReplayClicked] = useState();
   const { gameOver, setGameOver } = useContext(ChangeContext);
 
   const handleReplay = () => {
     clearBoard(board);
-    setGameOver(false);
-    setInitialCellValue(1);
+    setGameOver(true);
+    setReplayClicked(true);
+    setInitialCellValue(null);
   };
 
   return (
@@ -25,6 +25,9 @@ import "./Board.style.css";
         return row.map((cell, j) => {
           return (
             <Cell
+            setReplayClicked={setReplayClicked}
+              replayClicked={replayClicked}
+              gameOver={gameOver}
               initialCellValue={initialCellValue}
               key={`${i}&${j}`}
               coordinates={[i, j]}
@@ -39,4 +42,4 @@ import "./Board.style.css";
   );
 }
 
-export default Board
+export default Board;
