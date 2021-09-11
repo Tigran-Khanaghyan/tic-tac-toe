@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { useEffect } from "react/cjs/react.development";
+import { useEffect } from "react";
 import {
   FIRST_PLAYER_TURN,
   GAME_SIGNS,
