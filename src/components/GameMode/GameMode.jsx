@@ -1,11 +1,26 @@
+import {
+  BUTTON_STYLE,
+  CLICKED_BUTTON_STYLE,
+  PLAYER_VS_PLAYER,
+} from "../../constants/game";
 import Button from "../Button/Button";
+import "./GameMode.style.css";
 
-function GameMode() {
+function GameMode({
+  playerPlayer,
+  setPlayerPlayer,
+}) {
+  const handlePlayerPlayerClick = () => {
+    setPlayerPlayer(true);
+  };
+
   return (
     <>
-      <Button name="player vs player" />
-      <Button name="player vs computer" />
-      <Button name="computer vs computer" />
+      <Button
+        className={playerPlayer ? CLICKED_BUTTON_STYLE : BUTTON_STYLE}
+        name={PLAYER_VS_PLAYER}
+        onClick={handlePlayerPlayerClick}
+      />
     </>
   );
 }

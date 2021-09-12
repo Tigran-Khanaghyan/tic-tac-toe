@@ -9,6 +9,7 @@ import Layout from "../Layout/Layout";
 export const ChangeContext = React.createContext();
 
 function Game() {
+  const [playerPlayer, setPlayerPlayer] = useState(true);
   const [change, setChange] = useState(false);
   const [gameOver, setGameOver] = useState(false);
   const [newScores, setNewScores] = useState();
@@ -23,11 +24,22 @@ function Game() {
 
   return (
     <ChangeContext.Provider
-      value={{ change, setChange, gameOver, setGameOver }}
+      value={{
+        change,
+        setChange,
+        gameOver,
+        setGameOver,
+        playerPlayer,
+      }}
     >
       <Layout
         gameContent={<GameContent />}
-        gameMode={<GameMode />}
+        gameMode={
+          <GameMode
+            playerPlayer={playerPlayer}
+            setPlayerPlayer={setPlayerPlayer}
+          />
+        }
         gameInfo={
           <GameInfo
             change={change}
