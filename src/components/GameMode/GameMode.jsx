@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   BUTTON_STYLE,
   CLICKED_BUTTON_STYLE,
@@ -7,27 +6,30 @@ import {
   PLAYER_VS_PLAYER,
 } from "../../constants/game";
 import Button from "../Button/Button";
-import './GameMode.style.css'
+import "./GameMode.style.css";
 
-function GameMode() {
-  const [playerPlayer, setPlayerPlayer] = useState(true);
-  const [playerComputer, setPlayerComputer] = useState(false);
-  const [computerComputer, setComputerComputer] = useState(false);
-
+function GameMode({
+  playerPlayer,
+  setPlayerPlayer,
+  playerComputer,
+  setPlayerComputer,
+  computerComputer,
+  setComputerComputer,
+}) {
   const handlePlayerPlayerClick = () => {
-    setPlayerPlayer(true)
-    setPlayerComputer(false)
-    setComputerComputer(false)
+    setPlayerPlayer(true);
+    setPlayerComputer(false);
+    setComputerComputer(false);
   };
   const handlePlayerComputerClick = () => {
-    setPlayerComputer(true)
-    setPlayerPlayer(false)
-    setComputerComputer(false)
+    setPlayerComputer(true);
+    setPlayerPlayer(false);
+    setComputerComputer(false);
   };
   const handleComputerComputerClick = () => {
-    setComputerComputer(true)
-    setPlayerPlayer(false)
-    setPlayerComputer(false)
+    setComputerComputer(true);
+    setPlayerPlayer(false);
+    setPlayerComputer(false);
   };
 
   return (
