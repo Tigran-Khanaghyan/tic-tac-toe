@@ -26,7 +26,7 @@ function Layout(props) {
           closeModalWindow={closeModalWindow}
         />
         <ShowContext.Provider value={{ showModalWindow }}>
-          <div className="child-content">{props.gameContent}</div>
+          <div className="child-content">{props.child}</div>
         </ShowContext.Provider>
         <div className="info">
           <div className="mode-container">{props.gameMode}</div>

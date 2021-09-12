@@ -33,7 +33,7 @@ function Game() {
       }}
     >
       <Layout
-        gameContent={<GameContent />}
+        child={<GameContent />}
         gameMode={
           <GameMode
             playerPlayer={playerPlayer}
