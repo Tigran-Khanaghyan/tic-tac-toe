@@ -10,8 +10,6 @@ export const ChangeContext = React.createContext();
 
 function Game() {
   const [playerPlayer, setPlayerPlayer] = useState(true);
-  const [playerComputer, setPlayerComputer] = useState(false);
-  const [computerComputer, setComputerComputer] = useState(false);
   const [change, setChange] = useState(false);
   const [gameOver, setGameOver] = useState(false);
   const [newScores, setNewScores] = useState();
@@ -32,8 +30,6 @@ function Game() {
         gameOver,
         setGameOver,
         playerPlayer,
-        playerComputer,
-        computerComputer,
       }}
     >
       <Layout
@@ -42,10 +38,6 @@ function Game() {
           <GameMode
             playerPlayer={playerPlayer}
             setPlayerPlayer={setPlayerPlayer}
-            playerComputer={playerComputer}
-            setPlayerComputer={setPlayerComputer}
-            computerComputer={computerComputer}
-            setComputerComputer={setComputerComputer}
           />
         }
         gameInfo={

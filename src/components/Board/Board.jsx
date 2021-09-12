@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import { BUTTON_STYLE, REPLAY } from "../../constants/game";
 import { board, clearBoard } from "../../helpers/board";
 import Button from "../Button/Button";
 import Cell from "../Cell/Cell";
@@ -36,7 +37,9 @@ function Board() {
           );
         });
       })}
-      {gameOver ? <Button name="Replay" onClick={handleReplay} /> : null}
+      {gameOver ? (
+        <Button name={REPLAY} className={BUTTON_STYLE} onClick={handleReplay} />
+      ) : null}
     </div>
   );
 }

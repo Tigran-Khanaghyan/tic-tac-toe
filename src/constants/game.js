@@ -8,3 +8,4 @@ export const PLAYER_VS_COMPUTER = "Player vs Computer";
 export const COMPUTER_VS_COMPUTER = "Computer vs Computer";
 export const BUTTON_STYLE = "button";
 export const CLICKED_BUTTON_STYLE = "button-clicked";
+export const REPLAY = "Replay";
