@@ -49,6 +49,7 @@ function Cell({
     }
     // eslint-disable-next-line
   }, [cellValue]);
+ 
   useEffect(() => {
     signs.length = 0;
     setTurnToggler(!turnToggler);
