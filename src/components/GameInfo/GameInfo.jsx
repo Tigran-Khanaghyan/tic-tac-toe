@@ -8,11 +8,6 @@ import "./GameInfo.style.css";
 function GameInfo({ score1 = 0, score2 = 0, change, setChange }) {
   const [state, setState] = useState(false);
 
-  // if (state) {
-  //   localStorage.clear();
-  //   clearLocalScores(scores);
-  // }
-
   const clearScores = () => {
     clearLocalScores(scores);
     localStorage.clear();
