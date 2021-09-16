@@ -16,7 +16,6 @@ function GameInfo({ score1 = 0, score2 = 0, change, setChange }) {
   };
   useEffect(() => {
     let isScores = getScores("Info");
-    console.log(isScores);
     if (!isScores) {
       clearLocalScores(scores);
       setScores("Info", { score1: 0, score2: 0 });
