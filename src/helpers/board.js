@@ -1,5 +1,7 @@
+import { getScores } from "../services/localStorage";
+
 export const signs = [];
-export const scores = { score1: 0, score2: 0 };
+export const scores = getScores("Info");
 
 export const createBoard = (value = null) => {
   let board = [];

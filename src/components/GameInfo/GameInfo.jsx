@@ -1,16 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BUTTON_STYLE } from "../../constants/game";
 import { clearLocalScores, scores } from "../../helpers/board";
+import { getScores, setScores } from "../../services/localStorage";
 import Button from "../Button/Button";
 import "./GameInfo.style.css";
 
 function GameInfo({ score1 = 0, score2 = 0, change, setChange }) {
   const [state, setState] = useState(false);
-
-  if (state) {
-    localStorage.clear();
-    clearLocalScores(scores);
-  }
 
   const clearScores = () => {
     clearLocalScores(scores);
@@ -18,6 +14,13 @@ function GameInfo({ score1 = 0, score2 = 0, change, setChange }) {
     setChange(!change);
     setState(!state);
   };
+  useEffect(() => {
+    let isScores = getScores("Info");
+    if (!isScores) {
+      clearLocalScores(scores);
+      setScores("Info", { score1: 0, score2: 0 });
+    }
+  }, [state]);
 
   return (
     <>

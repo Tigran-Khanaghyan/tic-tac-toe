@@ -10,7 +10,10 @@ export function setScores(key, value) {
 export function getScores(key) {
   try {
     const serializedItem = localStorage.getItem(key);
-    return JSON.parse(serializedItem);
+    if (serializedItem) {
+      return JSON.parse(serializedItem);
+    }
+    return { score1: 0, score2: 0 };
   } catch (e) {
     throw new Error("Please enable local storage!");
   }
