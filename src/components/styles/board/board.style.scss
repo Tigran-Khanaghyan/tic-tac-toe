@@ -1,7 +1,7 @@
+@import '../mixin.scss';
+
 .board-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  @include centerFlex();
     flex-wrap: wrap;
     height: 180px;
     width: 180px;
