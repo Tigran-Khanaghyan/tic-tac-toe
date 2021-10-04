@@ -18,7 +18,7 @@ import {
 import { setScores } from "../../services/localStorage";
 import { ChangeContext } from "../Game/Game";
 import { ShowContext } from "../Layout/Layout";
-import "./Cell.style.css";
+
 
 function Cell({
   coordinates,
