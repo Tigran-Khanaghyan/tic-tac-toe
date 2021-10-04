@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import ModalContent from "../ModalContent/ModalContent";
 import ModalWindow from "../ModalWindow/ModalWindow";
-import "./Layout.style.css";
+
 
 export const ShowContext = React.createContext();
 

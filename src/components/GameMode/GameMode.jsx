@@ -4,7 +4,7 @@ import {
   PLAYER_VS_PLAYER,
 } from "../../constants/game";
 import Button from "../Button/Button";
-import "./GameMode.style.css";
+
 
 function GameMode({
   playerPlayer,
