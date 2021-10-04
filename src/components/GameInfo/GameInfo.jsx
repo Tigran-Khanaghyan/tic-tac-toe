@@ -3,7 +3,7 @@ import { BUTTON_STYLE } from "../../constants/game";
 import { clearLocalScores, scores } from "../../helpers/board";
 import { getScores, setScores } from "../../services/localStorage";
 import Button from "../Button/Button";
-import "./GameInfo.style.css";
+
 
 function GameInfo({ score1 = 0, score2 = 0, change, setChange }) {
   const [state, setState] = useState(false);
