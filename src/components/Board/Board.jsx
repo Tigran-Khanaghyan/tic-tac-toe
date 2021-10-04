@@ -4,7 +4,7 @@ import { board, clearBoard } from "../../helpers/board";
 import Button from "../Button/Button";
 import Cell from "../Cell/Cell";
 import { ChangeContext } from "../Game/Game";
-import "./Board.style.css";
+
 
 function Board() {
   const [turnToggler, setTurnToggler] = useState(false);
