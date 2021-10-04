@@ -1,6 +1,5 @@
 import { BUTTON_STYLE, CLOSE } from "../../constants/game";
 import Button from "../Button/Button";
-import "./ModalWindow.style.css";
 
 function ModalWindow({ child, show, closeModalWindow }) {
   const handleClick = () => {

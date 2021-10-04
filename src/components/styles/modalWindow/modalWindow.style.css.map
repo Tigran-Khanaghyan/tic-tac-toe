@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,MAAM,CAAC;EACH,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,MAAM;EACvB,WAAW,EAAE,MAAM;EACnB,cAAc,EAAE,MAAM;EACtB,QAAQ,EAAE,KAAK;EACf,GAAG,EAAE,GAAG;EACR,IAAI,EAAE,GAAG;EACT,MAAM,EAAE,KAAK;EACb,KAAK,EAAE,KAAK;EACZ,gBAAgB,EAAE,KAAK;EACvB,SAAS,EAAE,qBAAqB;CACjC;;AAED,AAAA,cAAc,CAAC;EACb,OAAO,EAAE,KAAK;CACf;;AACD,AAAA,aAAa,CAAC;EACZ,OAAO,EAAE,IAAI;CACd",
+    "sources": [
+        "modalWindow.style.scss"
+    ],
+    "names": [],
+    "file": "modalWindow.style.css"
+}
